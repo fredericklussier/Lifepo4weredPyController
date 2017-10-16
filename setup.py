@@ -43,8 +43,13 @@ setup(
     author_email='frederick.lussier@hotmail.com',
     url='https://github.com/fredericklussier/' + GITHUB_NAME,
     download_url=DOWNLOAD_URL,
+    install_requires=[
+        'tinyPeriodicTask',
+        'observablePy'
+        'lifepo4weredPy',
+    ],
     keywords=[
-        'observable', 'observer', 'observer-pattern'
+        'raspberry-pi', 'raspberrypi', 'lifepo4wered', 'battery', 'powersource'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
