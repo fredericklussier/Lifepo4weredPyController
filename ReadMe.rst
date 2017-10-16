@@ -55,13 +55,14 @@ classes
 The idea is to use oriented object mechanism to control the LiFePO4wered-Pi variables.
 We have distributate LiFePO4wered-Pi variables in different classes:
 
-* Battery (VBAT, VBAT_SHDN, VBAT_MIN, VBAT_BOOT)
+* Battery (VBAT)
 * Led (LED_STATE)
-* Touch (Touch...)
-* USBPowerSource ()
+* USBPowerSource (VIN)
 
 **What about others variables?**
-  Well! we think that they are factoring variables not to use in a runtime environment. 
+  Well! must of them, we just not there yet 
+  but we think that some of them are factoring variables (not to use in a runtime environment) 
+  and the provided CLI works perfectly fro them. 
 
 basic usage
 *****************
@@ -103,12 +104,6 @@ Legendary
 | **properies**                 | **aka**   | **access** | **Periodicaly read** |
 +===============================+===========+============+======================+
 | voltage                       | VBAT      | read only  | True                 |
-+-------------------------------+-----------+------------+----------------------+
-| shutdownVoltageLevel          | VBAT_SHDN | read/write | False                |
-+-------------------------------+-----------+------------+----------------------+
-| emergencyShutdownVoltageLevel | VBAT_MIN  | read/write | False                |
-+-------------------------------+-----------+------------+----------------------+
-| allowedToBootVoltageLevel     | VBAT_BOOT | read/write | False                |
 +-------------------------------+-----------+------------+----------------------+
 | rate'                         | na        | read only  | True                 |
 +-------------------------------+-----------+------------+----------------------+
