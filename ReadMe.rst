@@ -15,7 +15,7 @@ Lifepo4weredPyController
     :target: https://badge.fury.io/py/lifepo4weredPyController
 
 
-Our intention is to design an oriented object access to the lifepo4wered-pi3 data module.
+Our intention is to design an oriented object access to the lifepo4wered-pi3 data module during runtime application.
 
 reference: http://lifepo4wered.com/lifepo4wered-pi3.html
 
@@ -53,10 +53,12 @@ This is what we thing of...
 classes
 """""""
 The idea is to use oriented object mechanism to control the LiFePO4wered-Pi variables.
-We have distributate LiFePO4wered-Pi variables in different classes:
+We have distributated LiFePO4wered-Pi variables in different classes:
 
 * Battery (VBAT)
 * Led (LED_STATE)
+* Touch (TOUCH_STATE)
+* WakeTimer (WAKE_TIME)
 * USBPowerSource (VIN)
 
 **What about others variables?**
@@ -79,7 +81,7 @@ basic usage
     try:
         print(lifepo4weredPyController.battery.voltage)
 
-        # keep main process open, so observer will receive changes
+        # keep main process alive, so observers will receive changes
         while True:
             time.sleep(0.1)
             
@@ -87,7 +89,7 @@ basic usage
         myLifepo4wered.ceaseReading()
         print('stopped!')
 
-        lifepo4weredPyController.bootUp = 60  # boot in 1 minute after shoutdown
+        lifepo4weredPyController.wakeUp = 60  # boot in 1 hour after shutdown
  
 Legendary
 *********
@@ -141,3 +143,22 @@ Legendary
 +-------------+-----------------------------------------------------------------+
 | flash       | led flashing                                                    |
 +-------------+-----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+| **Touch**                                                                       |
++===============================+=============+============+======================+
+| **properies**                 | **aka**     | **access** | **Periodicaly read** |
++-------------------------------+-------------+------------+----------------------+
+| state                         | TOUCH_STATE | read only  | true                 |
++-------------------------------+-------------+------------+----------------------+
+
+
++-------------------------------------------------------------------------------+
+| **WakeTimer**                                                                 |
++===============================+===========+============+======================+
+| **properies**                 | **aka**   | **access** | **Periodicaly read** |
++-------------------------------+-----------+------------+----------------------+
+| wakeUp                        | WAKE_TIME | read/write | False                |
++-------------------------------+-----------+------------+----------------------+
+
