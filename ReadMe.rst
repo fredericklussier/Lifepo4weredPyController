@@ -62,9 +62,16 @@ We have distributated LiFePO4wered-Pi variables in different classes:
 * USBPowerSource (VIN)
 
 **What about others variables?**
-  Well! must of them, we just not there yet 
-  but we think that some of them are factoring variables (not to use in a runtime environment) 
-  and the provided CLI works perfectly fro them. 
+  Well! must of them, we just not there yet.
+  But we think that some of variables are factoring issue (not to use in a runtime environment) 
+  and the provided CLI works perfectly for them. 
+  Like:
+  * I2C_REG_VER
+  * I2C_ADDRESS
+  * DCO_RSEL
+  * DCO_DCOMOD
+  * CFG_WRITE
+ 
 
 basic usage
 *****************
