@@ -37,33 +37,6 @@ class Battery(Observable):
         else:
             return batteryNomalizedVolt / (BATTERY_FULL - shutdownVoltage)
 
-    @observable_property
-    def shutdownVoltageLevel(self):
-        return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VBAT_SHDN)
-
-    @shutdownVoltageLevel.setter
-    def shutdownVoltageLevel(self, value):
-        return lifepo4weredPy.write(lifepo4weredPy.variablesEnum.VBAT_SHDN,
-                                    value)
-
-    @observable_property
-    def emergencyShutdownVoltageLevel(self):
-        return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VBAT_MIN)
-
-    @emergencyShutdownVoltageLevel.setter
-    def emergencyShutdownVoltageLevel(self, value):
-        return lifepo4weredPy.write(lifepo4weredPy.variablesEnum.VBAT_MIN,
-                                    value)
-
-    @observable_property
-    def allowedToBootVoltageLevel(self):
-        return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VBAT_BOOT)
-
-    @allowedToBootVoltageLevel.setter
-    def allowedToBootVoltageLevel(self, value):
-        return lifepo4weredPy.write(lifepo4weredPy.variablesEnum.VBAT_BOOT,
-                                    value)
-
     def _read(self):
         if self.hasObservers():
             previousState = copy.deepcopy(self.state)

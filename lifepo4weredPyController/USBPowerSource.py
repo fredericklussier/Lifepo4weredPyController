@@ -23,15 +23,6 @@ class USBPowerSource(Observable):
     def pluggedIn(self):
         return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VIN) > 0
 
-    @observable_property
-    def allowedToBootVoltageLevel(self):
-        return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VIN_THRESHOLD)
-
-    @allowedToBootVoltageLevel.setter
-    def allowedToBootVoltageLevel(self, value):
-        return lifepo4weredPy.write(lifepo4weredPy.variablesEnum.VIN_THRESHOLD,
-                                    value)
-
     def _read(self):
         if self.hasObservers():
             previousState = copy.deepcopy(self.state)
