@@ -27,7 +27,7 @@ http://lifepo4wered.com/files/LiFePO4wered-Pi3-Product-Brief.pdf.
 
 Status
 ------
-Operation room: working hard to design pieces
+In development
 
 Installation
 ------------
@@ -46,9 +46,8 @@ Features (working on)
 * Python 3 
 * Hardly tested
 
-Draft:
+Detail:
 ^^^^^^
-This is what we thing of...
 
 classes
 """""""
