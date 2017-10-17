@@ -19,7 +19,6 @@ class BatteryTests(unittest.TestCase):
     @patch('tests.mockLifepo4weredSO.read_lifepo4wered', return_value=3354)
     def testVoltage_ShouldGetVoltage(self, mockedLib):
         # Arrange
-
         # Action
         actualValue = lifepo4weredPyController.battery.voltage
 
