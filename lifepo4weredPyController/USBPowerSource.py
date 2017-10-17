@@ -8,7 +8,7 @@ import lifepo4weredPy
 class USBPowerSource(Observable):
     def __init__(self):
         super(USBPowerSource, self).__init__()
-        self.state = {
+        self.instanceState = {
           "voltage": 0,
           "pluggedIn": False,
         }
@@ -23,11 +23,14 @@ class USBPowerSource(Observable):
     def pluggedIn(self):
         return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VIN) > 0
 
-    def _read(self):
+    def _diffuseChanges(self):
         if self.hasObservers():
-            previousState = copy.deepcopy(self.state)
+            voltage = self.voltage
 
-            self.state["voltage"] = self.voltage
-            self.state["pluggedIn"] = (self.voltage > 0)
+            if (voltage != self.instanceState["voltage"]):
+                previousState = copy.deepcopy(self.instanceState)
 
-            self.diffuse(previousState, self.state)
+                self.instanceState["voltage"] = voltage
+                self.instanceState["pluggedIn"] = voltage > 0
+
+                self.diffuse(previousState, self.instanceState)

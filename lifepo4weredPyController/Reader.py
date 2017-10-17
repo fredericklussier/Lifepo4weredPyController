@@ -13,6 +13,14 @@ class Reader():
         self.__task.stop()
         self.__task = None
 
+    @property
+    def interval(self):
+        return self.__task.interval
+
+    @interval.setter
+    def interval(self, value):
+        self.__task.interval = value
+
     def add(self, job):
         self.jobs.append(job)
 
@@ -21,7 +29,7 @@ class Reader():
             for job in self.jobs:
                 job()
 
-        self.__task = tinyPeriodicTask.TinyPeriodicTask(1, _read)
+        self.__task = tinyPeriodicTask.TinyPeriodicTask(0.5, _read)
         self.__task.start()
 
     def stop(self):

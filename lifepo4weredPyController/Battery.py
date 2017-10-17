@@ -11,7 +11,7 @@ BATTERY_FULL = 3392  # mVolt
 class Battery(Observable):
     def __init__(self):
         super(Battery, self).__init__()
-        self.state = {
+        self.instanceState = {
             "voltage": 0,
             "rate": 0.0,
         }
@@ -19,18 +19,18 @@ class Battery(Observable):
         self.addObservableElement("voltage")
         self.addObservableElement("rate")
 
-        self.shutdownVoltage = lifepo4weredPy.read(
-                                        lifepo4weredPy.variablesEnum.VBAT_SHDN)
-
     @property
     def voltage(self):
         return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VBAT)
 
     @property
     def rate(self):
-        return self._computeRate(self.voltage, self.shutdownVoltage)
+        return self._computeRate(self.voltage)
 
-    def _computeRate(self, actualVoltage, shutdownVoltage):
+    def _computeRate(self, actualVoltage):
+        shutdownVoltage = lifepo4weredPy.read(
+                                lifepo4weredPy.variablesEnum.VBAT_SHDN)
+
         batteryNomalizedVolt = (actualVoltage
                                 if actualVoltage < BATTERY_FULL
                                 else BATTERY_FULL) - shutdownVoltage
@@ -40,12 +40,14 @@ class Battery(Observable):
         else:
             return batteryNomalizedVolt / (BATTERY_FULL - shutdownVoltage)
 
-    def _read(self):
+    def _diffuseChanges(self):
         if self.hasObservers():
-            previousState = copy.deepcopy(self.state)
+            voltage = self.voltage
 
-            self.state["voltage"] = self.voltage
-            self.state["rate"] = self._computeRate(self.state["voltage"],
-                                                   self.shutdownVoltageLevel)
+            if (voltage != self.instanceState["voltage"]):
+                previousState = copy.deepcopy(self.instanceState)
 
-            self.diffuse(previousState, self.state)
+                self.instanceState["voltage"] = voltage
+                self.instanceState["rate"] = self._computeRate(voltage)
+
+                self.diffuse(previousState, self.instanceState)
