@@ -65,6 +65,7 @@ We have distributated LiFePO4wered-Pi variables in different classes:
   But we think that some of variables are factoring issue (not to use in a runtime environment) 
   and the provided CLI works perfectly for them. 
   Like:
+  
   * I2C_REG_VER
   * I2C_ADDRESS
   * DCO_RSEL
