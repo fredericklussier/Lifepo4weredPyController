@@ -24,29 +24,21 @@ DOWNLOAD_URL = (
 )
 
 
-def read_file(filename):
-    """
-    Read a utf8 encoded text file and return its contents.
-    """
-    with codecs.open(filename, 'r', 'utf8') as f:
-        return f.read()
-
-
 setup(
     name=NAME,
     packages=[NAME],
     version=VERSION,
     description='Enable observable behavior.',
-    long_description=read_file('ReadMe.rst'),
+    long_description=open('ReadMe.rst').read(),
     license='MIT',
     author='Frederick Lussier',
     author_email='frederick.lussier@hotmail.com',
     url='https://github.com/fredericklussier/' + GITHUB_NAME,
     download_url=DOWNLOAD_URL,
     install_requires=[
-        'tinyPeriodicTask',
-        'observablePy'
-        'lifepo4weredPy',
+        "tinyPeriodicTask>=1.3.1",
+        "observablePy>=0.2.2",
+        "lifepo4weredPy>=0.1.0"
     ],
     keywords=[
         'raspberry-pi', 'raspberrypi', 'lifepo4wered', 'battery', 'powersource'
@@ -55,6 +47,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: MIT License',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Natural Language :: English',
     ],
