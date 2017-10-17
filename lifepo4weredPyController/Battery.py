@@ -13,11 +13,14 @@ class Battery(Observable):
         super(Battery, self).__init__()
         self.state = {
             "voltage": 0,
-            "level": 0.0,
+            "rate": 0.0,
         }
 
         self.addObservableElement("voltage")
         self.addObservableElement("rate")
+
+        self.shutdownVoltage = lifepo4weredPy.read(
+                                        lifepo4weredPy.variablesEnum.VBAT_SHDN)
 
     @property
     def voltage(self):
