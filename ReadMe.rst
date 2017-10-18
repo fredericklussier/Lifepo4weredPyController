@@ -45,6 +45,13 @@ The best way is to set the LD_LIBRARY_PATH:
 
     echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/" >> ~/.bashrc
 
+Dependencies
+^^^^^^^^^^^^
+This setup will install does too:
+* tinyPeriodicTask>=1.3.1
+* observablePy>=0.2.2
+* lifepo4weredPy>=0.1.0
+
 Features (working on)
 ---------------------
 * Oriented object definition
@@ -53,7 +60,7 @@ Features (working on)
 * Python 3.5 and 3.6
 * Hardly tested
 
-Detail:
+Detail
 ^^^^^^
 
 classes
