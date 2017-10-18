@@ -33,7 +33,7 @@ Installation
 ------------
 .. code-block:: batch
 
-    pip install lifepo4weredPyController
+    pip3 install lifepo4weredPyController
 
 You have to install the LiFePO4wered-Pi drivers and CLI applications,
 please read https://github.com/xorbit/LiFePO4wered-Pi.
