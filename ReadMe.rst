@@ -103,7 +103,7 @@ basic usage
         myLifepo4wered.ceaseReading()
         print('stopped!')
 
-        lifepo4weredPyController.wakeUp = 60  # boot in 1 hour after shutdown
+        lifepo4weredPyController.WakeTimer.wakeUp = 60  # boot in 1 hour after shutdown
  
 Legendary
 *********
