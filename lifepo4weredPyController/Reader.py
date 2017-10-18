@@ -3,6 +3,13 @@
 
 import tinyPeriodicTask
 
+"""
+Reader is the mechanism which read periodically the data.
+
+basically: it execute a callback function called job 
+added using the add function.
+"""
+
 
 class Reader():
     def __init__(self):
@@ -18,9 +25,17 @@ class Reader():
         self.__task.interval = value
 
     def add(self, job):
+        """
+        Add a callback function to execute periodically.
+
+        :param func job: the function to call
+        """
         self.jobs.append(job)
 
     def startPeriodicallyReading(self):
+        """
+        Init and start periodically reading
+        """
         def _readJobs():
             for job in self.jobs:
                 job()
@@ -29,7 +44,13 @@ class Reader():
         self.__task.start()
 
     def restart(self):
+        """
+        Restart periodically reading
+        """
         self.__task.start()
 
     def stop(self):
+        """
+        cease periodically reading
+        """
         self.__task.stop()
