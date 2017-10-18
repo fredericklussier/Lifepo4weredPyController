@@ -1,8 +1,8 @@
 import time
-import myLifepo4wered
+import lifepo4weredPyController
 
 
-@myLifepo4wered.battery.observeState()
+@lifepo4weredPyController.battery.observeState()
 def printState(previous, actual):
     print("previously:{0}, now:{1}".format(previous, actual))
 
