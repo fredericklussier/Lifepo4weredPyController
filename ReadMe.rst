@@ -31,12 +31,20 @@ In development
 
 Installation
 ------------
-If you want to use this wrapper, you need:
+.. code-block:: batch
 
-Not yet, but we will have one, soon.
+    pip install lifepo4weredPyController
 
-To dowload and install the LiFePO4wered-Pi drivers and CLI applications,
+You have to install the LiFePO4wered-Pi drivers and CLI applications,
 please read https://github.com/xorbit/LiFePO4wered-Pi.
+
+and then, set a environment path variable that give access to the lifepo4wered driver
+
+    the best way is to set the LD_LIBRARY_PATH:
+    
+.. code-block:: batch
+
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/" >> ~/.bashrc
 
 Features (working on)
 ---------------------
