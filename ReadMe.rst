@@ -43,7 +43,7 @@ Features (working on)
 * Oriented object definition
 * Observable elements, so subscribed observers will know when data change
 * Periodically read data, 
-* Python 3 
+* Python 3.5 and 3.6
 * Hardly tested
 
 Detail:
