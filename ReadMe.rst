@@ -38,9 +38,8 @@ Installation
 You have to install the LiFePO4wered-Pi drivers and CLI applications,
 please read https://github.com/xorbit/LiFePO4wered-Pi.
 
-and then, set a environment path variable that give access to the lifepo4wered driver
-
-    the best way is to set the LD_LIBRARY_PATH:
+and then, set a environment path variable that give access to the lifepo4wered driver. 
+The best way is to set the LD_LIBRARY_PATH:
     
 .. code-block:: batch
 
