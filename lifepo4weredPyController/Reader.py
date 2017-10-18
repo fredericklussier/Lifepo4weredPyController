@@ -6,7 +6,7 @@ import tinyPeriodicTask
 """
 Reader is the mechanism which read periodically the data.
 
-basically: it execute a callback function called job 
+basically: it execute a callback function called job
 added using the add function.
 """
 
