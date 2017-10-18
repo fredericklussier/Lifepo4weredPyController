@@ -3,8 +3,8 @@ python:
   - "3.6"
   - "nightly"
 install:
-  - pip install -r Requirements.txt
-  - pip install -r devRequirements.txt
+  - pip install -r requirements.txt
+  - pip install -r requirements_dev.txt
 script:
   - coverage run -m unittest discover tests/
 after_success:
