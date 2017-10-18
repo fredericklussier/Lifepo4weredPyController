@@ -12,7 +12,7 @@ from .Reader import Reader
 
 __author__ = "Frederick Lussier <frederick.lussier@hotmail.com>"
 __status__ = "dev"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __date__ = "september 10th 2017"
 
 __all__ = [
