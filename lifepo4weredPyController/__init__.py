@@ -6,6 +6,7 @@ from .LedStateEnum import ledStateEnum
 from .Led import Led
 from .USBPowerSource import USBPowerSource
 from .TouchStateEnum import touchStateEnum
+from .WakeTimer import WakeTimer
 from .Touch import Touch
 from .Reader import Reader
 
@@ -24,6 +25,7 @@ __all__ = [
 battery = Battery()
 led = Led()
 touch = Touch()
+wakeTimer = WakeTimer()
 usbPowerSource = USBPowerSource()
 
 __reader = Reader()
