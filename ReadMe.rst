@@ -124,7 +124,8 @@ Legendary
 | rate'                         | na        | read only  | True                 |
 +-------------------------------+-----------+------------+----------------------+
 
-'rate: Will give the battery pourcentage
+'rate: return the level of the battery power based on the shutdown 
+data value as the 0 reference.
 
 
 +-------------------------------------------------------------------------------+
@@ -137,7 +138,7 @@ Legendary
 | pluggedIn'                    | na        | read only  | True                 |
 +-------------------------------+-----------+------------+----------------------+
 
-'pluggedIn: Will mention is the usb connector is plug to a power source
+'pluggedIn: Mention is the usb connector is plug to a power source
 
 
 +-------------------------------------------------------------------------------+
@@ -175,4 +176,6 @@ Legendary
 +-------------------------------+-----------+------------+----------------------+
 | wakeUp                        | WAKE_TIME | read/write | False                |
 +-------------------------------+-----------+------------+----------------------+
-
+Note: As the documentation states, the WAKE_TIME value is not saved in flash, 
+so it needs be set by a user program every time before the
+Raspberry Pi shuts down.
