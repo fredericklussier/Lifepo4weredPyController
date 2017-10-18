@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import atexit
 from .Battery import Battery
 from .LedStateEnum import ledStateEnum
 from .Led import Led
