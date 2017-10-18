@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import atexit
 from .Battery import Battery
 from .LedStateEnum import ledStateEnum
 from .Led import Led
 from .USBPowerSource import USBPowerSource
+from .TouchStateEnum import touchStateEnum
 from .Touch import Touch
 from .Reader import Reader
 
@@ -13,16 +15,30 @@ __status__ = "dev"
 __version__ = "0.1.0"
 __date__ = "september 10th 2017"
 
-__all__ = ["Battery", "USBPowerSource", "Led", "ledStateEnum", "Touch"]
+__all__ = [
+    "Battery",
+    "USBPowerSource",
+    "Led", "ledStateEnum",
+    "Touch", "touchStateEnum"
+]
 
 battery = Battery()
 led = Led()
+touch = Touch()
 usbPowerSource = USBPowerSource()
 
 __reader = Reader()
 __reader.add(battery._diffuseChanges)
 __reader.add(usbPowerSource._diffuseChanges)
-__reader.read()
+__reader.add(touch._diffuseChanges)
+__reader.startPeriodicallyReading()
+
+
+def getPeriodicInterval():
+    """
+    Get the interval between read data from power supply board
+    """
+    return __reader.interval
 
 
 def setPeriodicInterval(interval):
@@ -36,13 +52,16 @@ def setPeriodicInterval(interval):
 
 def ceaseReading():
     """
-    Cease reading data from power supply board.
+    Cease reading periodically the data from power supply board.
 
     This is important when you close your application.
     """
     __reader.stop()
 
-# TOUCH...
-# VOUT
-# VOUT_MAX
-# AUTO_BOOT and rest...
+
+def restartReading():
+    """
+    Restart reading periodically the data from power supply board.
+
+    """
+    __reader.restart()

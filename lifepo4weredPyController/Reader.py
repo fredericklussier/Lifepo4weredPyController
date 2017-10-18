@@ -9,10 +9,6 @@ class Reader():
         self.jobs = []
         self.__task = {}
 
-    def __del__(self):
-        self.__task.stop()
-        self.__task = None
-
     @property
     def interval(self):
         return self.__task.interval
@@ -24,12 +20,15 @@ class Reader():
     def add(self, job):
         self.jobs.append(job)
 
-    def read(self):
-        def _read():
+    def startPeriodicallyReading(self):
+        def _readJobs():
             for job in self.jobs:
                 job()
 
-        self.__task = tinyPeriodicTask.TinyPeriodicTask(0.5, _read)
+        self.__task = tinyPeriodicTask.TinyPeriodicTask(0.5, _readJobs)
+        self.__task.start()
+
+    def restart(self):
         self.__task.start()
 
     def stop(self):

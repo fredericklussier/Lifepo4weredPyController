@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import copy
 from observablePy import Observable, observable_property
 import lifepo4weredPy
 

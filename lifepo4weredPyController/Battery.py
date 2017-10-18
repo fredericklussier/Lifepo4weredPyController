@@ -35,7 +35,7 @@ class Battery(Observable):
                                 if actualVoltage < BATTERY_FULL
                                 else BATTERY_FULL) - shutdownVoltage
 
-        if ((BATTERY_FULL - shutdownVoltage) == 0):
+        if (batteryNomalizedVolt <= 0):
             return 0
         else:
             return batteryNomalizedVolt / (BATTERY_FULL - shutdownVoltage)
