@@ -6,6 +6,9 @@ omit =
     */__pycache__/*
     */.vscode/*
     test*.py
+    */tinyPeriodicTask/*
+    */observablePy/*
+    */lifepo4weredPy/*
 
 [report]
 # Regexes for lines to exclude from consideration
