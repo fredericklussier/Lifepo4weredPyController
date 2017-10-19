@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from .packageInfo import AUTHOR, VERSION, STATUS
+
 from .Battery import Battery
 from .LedStateEnum import ledStateEnum
 from .Led import Led
@@ -10,9 +12,9 @@ from .WakeTimer import WakeTimer
 from .Touch import Touch
 from .Reader import Reader
 
-__author__ = "Frederick Lussier <frederick.lussier@hotmail.com>"
-__status__ = "dev"
-__version__ = "0.1.1"
+__author__ = AUTHOR
+__status__ = STATUS
+__version__ = VERSION
 __date__ = "september 10th 2017"
 
 __all__ = [
