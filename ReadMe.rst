@@ -1,6 +1,13 @@
 Lifepo4weredPyController
 ========================
 
+.. image:: https://badge.fury.io/py/lifepo4weredPyController.svg
+    :target: https://badge.fury.io/py/lifepo4weredPyController
+    
+.. image:: https://img.shields.io/pypi/pyversions/lifepo4weredPyController.svg
+   :target: https://pypi.python.org/pypi/lifepo4weredPyController/
+   :alt: [Python versions]
+   
 .. image:: https://travis-ci.org/fredericklussier/Lifepo4weredPyController.svg?branch=master
     :target: https://travis-ci.org/fredericklussier/Lifepo4weredPyController
 
@@ -10,10 +17,6 @@ Lifepo4weredPyController
 .. image:: https://api.codeclimate.com/v1/badges/809cf25fc925a3ed8ef2/maintainability
    :target: https://codeclimate.com/github/fredericklussier/Lifepo4weredPyController/maintainability
    :alt: Maintainability
-
-.. image:: https://badge.fury.io/py/lifepo4weredPyController.svg
-    :target: https://badge.fury.io/py/lifepo4weredPyController
-
 
 Our intention is to design an oriented object access to the lifepo4wered-pi3 data module during runtime application.
 
