@@ -43,7 +43,7 @@ setup(
     long_description=_LONG_DESCRIPTION,
     license='MIT',
     author=AUTHOR.split("<")[0].strip(),
-    author_email="<" + AUTHOR.split("<")[1],
+    author_email=(AUTHOR.split("<")[1])[:-1],
     url='https://github.com/fredericklussier/' + _GITHUB_NAME,
     download_url=_DOWNLOAD_URL,
     install_requires=[
