@@ -10,10 +10,18 @@ import lifepo4weredPyController
 
 
 class BatteryTests(unittest.TestCase):
+    lifepo4weredPyController
+
+    def tearDown(self):
+        lifepo4weredPyController.battery.clear()
+
+    @classmethod
+    def setUpClass(cls):
+        import lifepo4weredPyController
+
     """
     voltage
     """
-
     @patch('lifepo4weredPy.functions.lifepo4weredSO', new=mockLifepo4weredSO)
     @patch('tests.mockLifepo4weredSO.read_lifepo4wered', return_value=3354)
     def testVoltage_ShouldGetVoltage(self, mockedLib):

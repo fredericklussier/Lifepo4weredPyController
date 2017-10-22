@@ -7,7 +7,7 @@ It allow performing unit tests event if lifepo4wered device
 is not plugged.
 """
 
-    
+
 def access_lifepo4wered(eLiFePO4weredVar, access_mask):
     """
     Determine if the specified variable can be accessed in the

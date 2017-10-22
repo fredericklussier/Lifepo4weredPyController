@@ -19,6 +19,10 @@ class Battery(Observable):
         self.addObservableElement("voltage")
         self.addObservableElement("rate")
 
+    def clear(self):
+        self.instanceState["voltage"] = 0
+        self.instanceState["rate"] = 0.0
+
     @property
     def voltage(self):
         return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VBAT)
