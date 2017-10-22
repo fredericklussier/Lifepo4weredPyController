@@ -3,7 +3,7 @@
 
 PACKAGE_NAME = "lifepo4weredPyController"
 AUTHOR = "Frederick Lussier <frederick.lussier@hotmail.com>"
-VERSION = "0.1.2"
+VERSION = "0.2.2"
 STATUS = ["1 - Planning",
           "2 - Pre-Alpha",
           "3 - Alpha",

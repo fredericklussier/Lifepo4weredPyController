@@ -25,13 +25,12 @@ class USBPowerSource(Observable):
         return lifepo4weredPy.read(lifepo4weredPy.variablesEnum.VIN) > 0
 
     def _diffuseChanges(self):
-        if self.hasObservers():
-            voltage = self.voltage
+        voltage = self.voltage
 
-            if (voltage != self.instanceState["voltage"]):
-                previousState = copy.deepcopy(self.instanceState)
+        if (voltage != self.instanceState["voltage"]):
+            previousState = copy.deepcopy(self.instanceState)
 
-                self.instanceState["voltage"] = voltage
-                self.instanceState["pluggedIn"] = voltage > 0
+            self.instanceState["voltage"] = voltage
+            self.instanceState["pluggedIn"] = voltage > 0
 
-                self.diffuse(previousState, self.instanceState)
+            self.diffuse(previousState, self.instanceState)

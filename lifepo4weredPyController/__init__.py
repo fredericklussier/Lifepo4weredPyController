@@ -4,7 +4,7 @@
 from .packageInfo import AUTHOR, VERSION, STATUS
 
 from .packageExposedServices import (
-    battery, led, touch, wakeTimer, usbPowerSource,
+    battery, led, lifepo4wered, touch, usbPowerSource, wakeTimer,
     ledStateEnum, touchStateEnum,
     getPeriodicInterval, setPeriodicInterval, ceaseReading, restartReading)
 
@@ -17,6 +17,7 @@ __all__ = [
     "battery",
     "usbPowerSource",
     "led", "ledStateEnum",
+    "lifepo4wered",
     "touch", "touchStateEnum",
     "wakeTimer"
 ]

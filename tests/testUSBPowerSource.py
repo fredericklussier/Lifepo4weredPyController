@@ -25,8 +25,29 @@ class USBPowerSourceTests(unittest.TestCase):
         # Assert
         self.assertEqual(actualValue, 5000)
 
+    def readVoltageSideEffects(value):
+        """
+        Simulate returned value when reading the data
+        variable from the lifepo4weredSO
+        """
+        if value == 10:  # VBAT
+            return 3300
+
+        elif value == 13:  # VBAT_SHDN
+            return 2950  # according to Lifepo4weredPi documentation
+
+        elif value == 9:  # VIN
+            return 5020
+
+        elif value == 3:  # TOUCH_STATE
+            return 0
+
+        else:
+            return 10
+
     @patch('lifepo4weredPy.functions.lifepo4weredSO', new=mockLifepo4weredSO)
-    @patch('tests.mockLifepo4weredSO.read_lifepo4wered', return_value=3000)
+    @patch('tests.mockLifepo4weredSO.read_lifepo4wered',
+           side_effect=readVoltageSideEffects)
     def testVoltage_waitReading_ShouldGetVoltage(self, mockedLib):
         # Arrange
         handleCalled = False
@@ -37,7 +58,7 @@ class USBPowerSourceTests(unittest.TestCase):
         def voltageChangeHandle(previous, actual):
             nonlocal count, handleCalled
             handleCalled = True
-            self.assertEqual(actual, 3000)
+            self.assertEqual(actual, 5020)
 
         while count < 3:
             count += 1
@@ -74,8 +95,7 @@ class USBPowerSourceTests(unittest.TestCase):
         self.assertFalse(actualValue)
 
     @patch('lifepo4weredPy.functions.lifepo4weredSO', new=mockLifepo4weredSO)
-    @patch('tests.mockLifepo4weredSO.read_lifepo4wered', return_value=5000)
-    def testPluggedIn_waitReading_ShouldGetPluggedIn(self, mockedLib):
+    def testPluggedIn_waitReading_ShouldGetPluggedIn(self):
         # Arrange
         handleCalled = False
         count = 0

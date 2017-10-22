@@ -35,7 +35,7 @@ class BatteryTests(unittest.TestCase):
         def voltageChangeHandle(previous, actual):
             nonlocal count, handleCalled
             handleCalled = True
-            self.assertEqual(actual, 10)
+            self.assertEqual(actual, 3300)
 
         while count < 3:
             count += 1
@@ -149,6 +149,15 @@ class BatteryTests(unittest.TestCase):
 
         elif value == 13:  # VBAT_SHDN
             return 2950  # according to Lifepo4weredPi documentation
+
+        elif value == 9:  # VIN
+            return 5000
+
+        elif value == 3:  # TOUCH_STATE
+            return 0
+
+        else:
+            return 10
 
     @patch('lifepo4weredPy.functions.lifepo4weredSO', new=mockLifepo4weredSO)
     @patch('tests.mockLifepo4weredSO.read_lifepo4wered',

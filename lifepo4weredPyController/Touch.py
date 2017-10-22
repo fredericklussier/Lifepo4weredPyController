@@ -22,12 +22,11 @@ class Touch(Observable):
                                lifepo4weredPy.variablesEnum.TOUCH_STATE))
 
     def _diffuseChanges(self):
-        if self.hasObservers():
-            state = self.state
+        state = self.state
 
-            if (state != self.instanceState["state"]):
-                previousState = copy.deepcopy(self.instanceState)
+        if (state != self.instanceState["state"]):
+            previousState = copy.deepcopy(self.instanceState)
 
-                self.instanceState["state"] = state
+            self.instanceState["state"] = state
 
-                self.diffuse(previousState, self.instanceState)
+            self.diffuse(previousState, self.instanceState)

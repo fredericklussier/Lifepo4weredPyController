@@ -41,13 +41,12 @@ class Battery(Observable):
             return batteryNomalizedVolt / (BATTERY_FULL - shutdownVoltage)
 
     def _diffuseChanges(self):
-        if self.hasObservers():
-            voltage = self.voltage
+        voltage = self.voltage
 
-            if (voltage != self.instanceState["voltage"]):
-                previousState = copy.deepcopy(self.instanceState)
+        if (voltage != self.instanceState["voltage"]):
+            previousState = copy.deepcopy(self.instanceState)
 
-                self.instanceState["voltage"] = voltage
-                self.instanceState["rate"] = self._computeRate(voltage)
+            self.instanceState["voltage"] = voltage
+            self.instanceState["rate"] = self._computeRate(voltage)
 
-                self.diffuse(previousState, self.instanceState)
+            self.diffuse(previousState, self.instanceState)
