@@ -117,7 +117,7 @@ basic usage
 
         lifepo4weredPyController.WakeTimer.wakeUp = 60  # boot in 1 hour after shutdown
  
-Legendary
+Legend
 *********
 * **properies:** name of class property
 * **aka:** name used by the LiFePO4wered-Pi variables
