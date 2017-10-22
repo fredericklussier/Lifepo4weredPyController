@@ -18,7 +18,7 @@ from setuptools import setup, find_packages
 # 'Lifepo4weredPyController'
 _GITHUB_NAME = PACKAGE_NAME[0].upper() + PACKAGE_NAME[1:]
 _DOWNLOAD_URL = (
-    'https://github.com/fredericklussier/' + _GITHUB_NAME + '/' + VERSION
+    'https://github.com/fredericklussier/' + _GITHUB_NAME + '/tree/' + VERSION
 )
 
 _LONG_DESCRIPTION = """
