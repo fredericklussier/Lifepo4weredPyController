@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from .helpers import SetHelper
 from observablePy import Observable, observable_property
 import copy
 
@@ -21,5 +22,8 @@ class Lifepo4wered(Observable):
 
     def _diffuseChanges(self):
         if self.hasObservers():
-            self.diffuse(self._previousInstanceState, self.instanceState)
-            self._previousInstanceState = copy.deepcopy(self.instanceState)
+            areSame = SetHelper.areSame(self._previousInstanceState,
+                                        self.instanceState)
+            if areSame is False:
+                self.diffuse(self._previousInstanceState, self.instanceState)
+                self._previousInstanceState = copy.deepcopy(self.instanceState)
