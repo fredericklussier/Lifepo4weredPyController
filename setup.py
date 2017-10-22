@@ -37,7 +37,7 @@ http://lifepo4wered.com/files/LiFePO4wered-Pi3-Product-Brief.pdf.
 
 setup(
     name=PACKAGE_NAME,
-    packages=[PACKAGE_NAME],
+    packages=[PACKAGE_NAME, PACKAGE_NAME+'/helpers'],
     version=VERSION,
     description='Observable data and class oriented of Lifepo4wered battery ' +
                 'power module.',
