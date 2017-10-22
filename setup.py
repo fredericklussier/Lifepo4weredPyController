@@ -39,7 +39,8 @@ setup(
     name=PACKAGE_NAME,
     packages=[PACKAGE_NAME],
     version=VERSION,
-    description='Observable data and class oriented of Lifepo4wered battery power module.',
+    description='Observable data and class oriented of Lifepo4wered battery ' +
+                'power module.',
     long_description=_LONG_DESCRIPTION,
     license='MIT',
     author=AUTHOR.split("<")[0].strip(),
